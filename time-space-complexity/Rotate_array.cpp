@@ -36,7 +36,7 @@ void Rotate(int arr[], int d, int n)
     rotator(arr, n-d);
 }	
 
-
+supoose  = a[1,2,3,4,5] and k=3 so huma 5 ko krna hai toh (8 mtlb n+1.n+2.n+3) aaab hum isi n+3 ko mod krdai toh 3 output aa jayga
     Another solution love babbar
     
     class Solution {
