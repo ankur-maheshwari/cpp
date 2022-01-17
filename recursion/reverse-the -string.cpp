@@ -1,3 +1,6 @@
+input = abcde
+output = edcba
+
 #include<iostream>
 using namespace std;
 
