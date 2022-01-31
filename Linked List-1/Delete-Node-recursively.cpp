@@ -66,15 +66,18 @@ Node *deleteNodeRec(Node *head, int pos)
     {
         return head;
     }
-
-    Node *temp = deleteNodeRec(head->next, pos - 1);
-
-    if (pos == 0)
+  else  if (pos == 0)
     {
+        Node* temp = head->next;
+        delete head;
         return temp;
     }
-    head->next = temp;
-    return head;
+    else {
+        Node* x = deleteNodeRec(head->next, pos-1);
+        head->next = x;
+        return head;
+    }
+   
 }
 
 Node *takeinput()
