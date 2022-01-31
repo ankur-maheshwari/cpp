@@ -76,6 +76,7 @@ Node *removeDuplicates(Node *head)
 */
 Node *removeDuplicates(Node *head)
 {
+    /*
     Node *ptr1 = head, *ptr2 = NULL;
     while (ptr1 != NULL && ptr1->next != NULL)
     {
@@ -88,6 +89,26 @@ Node *removeDuplicates(Node *head)
         }
         ptr1->next = ptr2;
         ptr1 = ptr2;
+    }
+    return head;
+    
+    OR
+    */   
+     //  EASY SOLUTION 
+        
+        if(head == NULL || head -> next == NULL){
+        return head;
+    }
+    
+    Node* ptr1 = head;
+    while(ptr1 -> next != NULL){
+        Node* ptr2 = ptr1 -> next;
+        if(ptr1 -> data == ptr1 -> next -> data){
+            ptr1 -> next = ptr2 -> next;
+        }
+        else{
+            ptr1 = ptr1 -> next;
+        }
     }
     return head;
 }
