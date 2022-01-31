@@ -57,27 +57,20 @@ public:
 
 using namespace std;
 
-Node *insertNode(Node *head, int i, int data)
-{
+Node* insertNode(Node *head, int i, int data) {
     if (head == NULL)
     {
-        if (i == 0)
-        {
-            Node *newNode = new Node(data);
-            return newNode;
-        }
         return head;
     }
-
-    Node *temp = insertNode(head->next, i - 1, data);
-    head->next = temp;
     if (i == 0)
     {
         Node *newNode = new Node(data);
         newNode->next = head;
         head = newNode;
-    }
     return head;
+    }
+    Node *x = insertNode(head->next, i - 1, data);
+    head->next = x;
 }
 
 Node *takeinput()
