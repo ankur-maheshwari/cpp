@@ -59,6 +59,7 @@ Node* findSecondLastNode(Node* head){
     }
     return temp;
 }
+// THIS SOLUTION WILL GIVE TLE FOR AROUND linked list length = 100000 (1 lakh) elements
 
 bool isPalindrome(Node *head){
     if(head == NULL || head -> next == NULL){
