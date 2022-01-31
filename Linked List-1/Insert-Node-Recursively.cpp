@@ -62,15 +62,18 @@ Node* insertNode(Node *head, int i, int data) {
     {
         return head;
     }
-    if (i == 0)
+   else if (i == 0)
     {
         Node *newNode = new Node(data);
         newNode->next = head;
         head = newNode;
     return head;
     }
+    else {
     Node *x = insertNode(head->next, i - 1, data);
     head->next = x;
+        return head;
+    }
 }
 
 Node *takeinput()
