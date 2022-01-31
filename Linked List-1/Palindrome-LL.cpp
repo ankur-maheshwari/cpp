@@ -38,6 +38,7 @@ For the second query, the list is empty. An empty list is always a palindrome , 
 */
 
 #include <iostream>
+using namespace std;
 
 class Node
 {
@@ -51,8 +52,30 @@ public:
     }
 };
 
-using namespace std;
+Node* findSecondLastNode(Node* head){
+    Node* temp = head;
+    while(temp -> next->next != NULL){
+        temp = temp -> next;
+    }
+    return temp;
+}
 
+bool isPalindrome(Node *head){
+    if(head == NULL || head -> next == NULL){
+        return true;
+    }
+    Node* secondLast = findSecondLastNode(head);
+    Node* last = secondLast->next;
+    if(last-> data == head -> data){
+        secondLast -> next = NULL;
+		return isPalindrome(head -> next);	        
+    }
+    else return false;
+}
+
+
+
+/*
 bool isPalindrome(Node *head)
 {
     if (head == NULL)
@@ -92,7 +115,7 @@ bool isPalindrome(Node *head)
     }
     return false;
 }
-
+*/
 Node *takeinput()
 {
     int data;
