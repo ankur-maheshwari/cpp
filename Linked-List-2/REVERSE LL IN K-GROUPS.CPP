@@ -15,33 +15,30 @@ public:
 using namespace std;
 
 
-Node *kReverse(Node *head,int  k){                   //   recursive approach
-if(head == NULL) {  return NULL ;  }
-
-  // BASE CASE (REVERSE FIRST K-NODES)
-  
-  Node *next = NULL;
-  Node *current = head;
-  Node *prev = NULL;
-  int count = 0;
-  while(next != NULL & count <k) {
-    next = current->next;
-    current->next = prev;
+Node* reverseK(Node* head, int k) {
+        
+    Node*prv = NULL;
+    Node*curr = head;
+    Node*next ;
+    int count = 0;
+    if(head == NULL ) return head;
+    while(count < k && curr != NULL )
+    {
+        next = curr->next;
+        curr->next = prv;
+        prv = curr;
+        curr = next;
+        count++;
+    }
+    if(count != k){
+        return reverseK(prv, count);
+    }
+    head->next = reverseK(curr, k);
     
-    prev = current;
-    current = next;
-    
-    count++;
-  }
-  // recursion 
-  
-  if(next != NULL) {
-   head->next = kReverse(next,k);
-  }
-  
-  return prev;
-}
 
+    return prv;
+        
+    }
 
 Node *takeinput()
 {
@@ -87,7 +84,7 @@ int main()
 		Node *head = takeinput();
 		int k;
 		cin >> k;
-		head = kReverse(head, k);
+		head = reverseK(head, k);
 		print(head);
 	}
 	
