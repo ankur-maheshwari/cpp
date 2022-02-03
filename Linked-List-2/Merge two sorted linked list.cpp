@@ -105,7 +105,7 @@ int main()
 	{
 		Node *head1 = takeinput();
 		Node *head2 = takeinput();
-		Node *head3 = mergeTwoSortedLinkedLists(head1, head2);
+		Node *head3 = merge(head1, head2);
 		print(head3);
 	}
 	return 0;
